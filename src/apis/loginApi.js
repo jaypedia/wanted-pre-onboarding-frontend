@@ -16,7 +16,7 @@ export const postSignUp = async (userAccount) => {
   try {
     await loginInstance.post('/signup', userAccount);
   } catch (err) {
-    console.log(err);
+    console.error(err);
   }
 };
 

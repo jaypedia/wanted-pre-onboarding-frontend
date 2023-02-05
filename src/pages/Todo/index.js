@@ -1,34 +1,56 @@
 import { useLoaderData } from 'react-router-dom';
 import { useInput } from 'hooks/useInput';
 import { createTodo, deleteTodo, updateTodo } from 'apis/todoApi';
-import { useState } from 'react';
+import { useEffect } from 'react';
+import { TodoListItem } from 'components/TodoListItem';
+import { useTodoDispatch, useTodoState } from 'context';
 
 export const Todo = () => {
+  const { todos } = useTodoState();
+  const todoDispacth = useTodoDispatch();
   const { data: loadedTodoData } = useLoaderData();
-  const [todos, setTodos] = useState(loadedTodoData);
   const { value: todoValue, onReset: resetTodo, onChange: onTodoChange } = useInput();
+
+  useEffect(() => {
+    todoDispacth({
+      type: 'init',
+      payload: {
+        todos: loadedTodoData,
+      },
+    });
+  }, []);
 
   const handleCreateTodo = async (e) => {
     e.preventDefault();
     if (!todoValue) return;
     const newTodo = await createTodo({ todo: todoValue });
-    setTodos((prev) => [...prev, newTodo]);
+    todoDispacth({
+      type: 'create',
+      payload: {
+        newTodo,
+      },
+    });
     resetTodo();
   };
 
   const handleCheckBoxChange = async (id, todo, isCompleted) => {
     const updatedTodo = await updateTodo(id, { todo, isCompleted: !isCompleted });
-    setTodos((prev) => {
-      const filtered = prev.filter((todo) => todo.id !== id);
-      return [...filtered, updatedTodo];
+    todoDispacth({
+      type: 'update',
+      payload: {
+        id,
+        updatedTodo,
+      },
     });
   };
 
   const handleDeleteClick = async (id) => {
     await deleteTodo(id);
-    setTodos((prev) => {
-      const filtered = prev.filter((todo) => todo.id !== id);
-      return filtered;
+    todoDispacth({
+      type: 'delete',
+      payload: {
+        id,
+      },
     });
   };
 
@@ -46,20 +68,14 @@ export const Todo = () => {
       <ul>
         {todos.map(({ id, todo, isCompleted }) => {
           return (
-            <li key={id}>
-              <label>
-                <input
-                  type="checkbox"
-                  checked={isCompleted}
-                  onChange={() => handleCheckBoxChange(id, todo, isCompleted)}
-                />
-                <span>{todo}</span>
-                <button data-testid="modify-button">수정</button>
-                <button data-testid="delete-button" onClick={() => handleDeleteClick(id)}>
-                  삭제
-                </button>
-              </label>
-            </li>
+            <TodoListItem
+              key={id}
+              id={id}
+              todo={todo}
+              isCompleted={isCompleted}
+              onCheckBoxChange={() => handleCheckBoxChange(id, todo, isCompleted)}
+              onDelete={() => handleDeleteClick(id)}
+            />
           );
         })}
       </ul>
