@@ -46,6 +46,8 @@ export const Todo = () => {
                   onChange={() => handleCheckBoxChange(id, todo, isCompleted)}
                 />
                 <span>{todo}</span>
+                <button data-testid="modify-button">수정</button>
+                <button data-testid="delete-button">삭제</button>
               </label>
             </li>
           );
