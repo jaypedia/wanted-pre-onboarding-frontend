@@ -42,6 +42,7 @@ export const SignUp = () => {
           회원가입하기
         </button>
       </form>
+      <button onClick={goSignIn}>로그인하러 가기</button>
     </>
   );
 };

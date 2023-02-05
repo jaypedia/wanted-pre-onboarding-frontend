@@ -14,11 +14,12 @@ export const SignIn = () => {
     handlePasswordChange,
   } = useCheckAccount();
 
-  const [goTodo] = useMovePage('/todo');
+  const [goTodo, goSignUp] = useMovePage(['/todo', '/signup']);
 
   const handleSignIn = async (e) => {
     e.preventDefault();
     const { accessToken } = await postSignIn({ email: emailInput, password: passwordInput });
+    if (!accessToken) return;
     localStorage.setItem(USER_TOKEN_KEY, accessToken);
     goTodo();
   };
@@ -44,6 +45,7 @@ export const SignIn = () => {
           로그인하기
         </button>
       </form>
+      <button onClick={goSignUp}>회원가입하러 가기</button>
     </>
   );
 };
