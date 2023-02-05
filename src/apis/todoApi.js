@@ -33,7 +33,7 @@ export const getTodos = async () => {
 
 export const updateTodo = async (id, updatedTodo) => {
   try {
-    const response = await todoInstance.put(id, updatedTodo);
+    const response = await todoInstance.put(`/${id}`, updatedTodo);
     return response.data;
   } catch (error) {
     console.error(error);
@@ -42,7 +42,7 @@ export const updateTodo = async (id, updatedTodo) => {
 
 export const deleteTodo = async (id) => {
   try {
-    await todoInstance.delete(id);
+    await todoInstance.delete(`/${id}`);
   } catch (error) {
     console.error(error);
   }
