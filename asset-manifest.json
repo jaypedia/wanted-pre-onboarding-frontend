@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "https://jaypedia.github.io/wanted-pre-onboarding-frontend/static/js/main.c9e121c8.js",
-    "index.html": "https://jaypedia.github.io/wanted-pre-onboarding-frontend/index.html",
-    "main.c9e121c8.js.map": "https://jaypedia.github.io/wanted-pre-onboarding-frontend/static/js/main.c9e121c8.js.map"
+    "main.js": "/wanted-pre-onboarding-frontend/static/js/main.60bdbc85.js",
+    "index.html": "/wanted-pre-onboarding-frontend/index.html",
+    "main.60bdbc85.js.map": "/wanted-pre-onboarding-frontend/static/js/main.60bdbc85.js.map"
   },
   "entrypoints": [
-    "static/js/main.c9e121c8.js"
+    "static/js/main.60bdbc85.js"
   ]
 }
