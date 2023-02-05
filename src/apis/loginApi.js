@@ -23,11 +23,11 @@ export const postSignUp = async (userAccount) => {
 export const postSignIn = async (userAccount) => {
   try {
     const response = await loginInstance.post('/signin', userAccount);
-    const { access_token } = response.data;
+    const { access_token: accessToken } = response.data;
     if (response.status === 200) {
-      localStorage.setItem(USER_TOKEN_KEY, access_token);
+      localStorage.setItem(USER_TOKEN_KEY, accessToken);
     }
-    return { access_token };
+    return { accessToken };
   } catch (err) {
     console.error(err);
   }

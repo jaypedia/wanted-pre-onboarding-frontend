@@ -1,4 +1,7 @@
 import { useCheckAccount } from 'hooks/useCheckAccount';
+import { useMovePage } from 'hooks/useMovePage';
+import { postSignIn } from 'apis/loginApi';
+import { USER_TOKEN_KEY } from 'constants';
 
 export const SignIn = () => {
   const {
@@ -11,10 +14,19 @@ export const SignIn = () => {
     handlePasswordChange,
   } = useCheckAccount();
 
+  const [goTodo] = useMovePage('/todo');
+
+  const handleSignIn = async (e) => {
+    e.preventDefault();
+    const { accessToken } = await postSignIn({ email: emailInput, password: passwordInput });
+    localStorage.setItem(USER_TOKEN_KEY, accessToken);
+    goTodo();
+  };
+
   return (
     <>
       <h1>로그인</h1>
-      <div>
+      <form onSubmit={handleSignIn}>
         <input
           data-testid="email-input"
           ref={emailRef}
@@ -26,11 +38,12 @@ export const SignIn = () => {
           ref={passwordRef}
           value={passwordInput}
           onChange={handlePasswordChange}
+          type="password"
         />
-        <button data-testid="signin-button" disabled={isButtonDisabled}>
+        <button type="submit" data-testid="signin-button" disabled={isButtonDisabled}>
           로그인하기
         </button>
-      </div>
+      </form>
     </>
   );
 };
