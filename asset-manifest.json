@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "https://jaypedia.github.io/wanted-pre-onboarding-frontend/static/css/main.a5e2b89c.css",
-    "main.js": "https://jaypedia.github.io/wanted-pre-onboarding-frontend/static/js/main.6d66afbe.js",
-    "index.html": "https://jaypedia.github.io/wanted-pre-onboarding-frontend/index.html",
-    "main.a5e2b89c.css.map": "https://jaypedia.github.io/wanted-pre-onboarding-frontend/static/css/main.a5e2b89c.css.map",
-    "main.6d66afbe.js.map": "https://jaypedia.github.io/wanted-pre-onboarding-frontend/static/js/main.6d66afbe.js.map"
+    "main.css": "/wanted-pre-onboarding-frontend/static/css/main.a5e2b89c.css",
+    "main.js": "/wanted-pre-onboarding-frontend/static/js/main.2abe7f3c.js",
+    "index.html": "/wanted-pre-onboarding-frontend/index.html",
+    "main.a5e2b89c.css.map": "/wanted-pre-onboarding-frontend/static/css/main.a5e2b89c.css.map",
+    "main.2abe7f3c.js.map": "/wanted-pre-onboarding-frontend/static/js/main.2abe7f3c.js.map"
   },
   "entrypoints": [
     "static/css/main.a5e2b89c.css",
-    "static/js/main.6d66afbe.js"
+    "static/js/main.2abe7f3c.js"
   ]
 }
