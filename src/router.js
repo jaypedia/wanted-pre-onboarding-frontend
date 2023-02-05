@@ -1,7 +1,13 @@
-import { SignIn, SignUp, Todo, Error, signInLoader, todoLoader } from 'pages';
+import { SignIn, SignUp, Todo, Error, signInLoader, todoLoader, Root } from 'pages';
 import { createBrowserRouter } from 'react-router-dom';
 
-export const router = createBrowserRouter([
+const routes = [
+  {
+    path: '/',
+    element: <Root />,
+    errorElement: <Error />,
+    loader: signInLoader,
+  },
   {
     path: '/signin',
     element: <SignIn />,
@@ -20,4 +26,6 @@ export const router = createBrowserRouter([
     errorElement: <Error />,
     loader: todoLoader,
   },
-]);
+];
+
+export const router = createBrowserRouter(routes, { basename: process.env.BASE_NAME });
