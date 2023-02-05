@@ -1,4 +1,6 @@
+import { postSignUp } from 'apis/loginApi';
 import { useCheckAccount } from 'hooks/useCheckAccount';
+import { useMovePage } from 'hooks/useMovePage';
 
 export const SignUp = () => {
   const {
@@ -11,10 +13,18 @@ export const SignUp = () => {
     handlePasswordChange,
   } = useCheckAccount();
 
+  const [goSignIn] = useMovePage('/signin');
+
+  const handleSignUp = async (e) => {
+    e.preventDefault();
+    await postSignUp({ email: emailInput, password: passwordInput });
+    goSignIn();
+  };
+
   return (
     <>
       <h1>회원가입</h1>
-      <div>
+      <form onSubmit={handleSignUp}>
         <input
           data-testid="email-input"
           ref={emailRef}
@@ -26,11 +36,12 @@ export const SignUp = () => {
           ref={passwordRef}
           value={passwordInput}
           onChange={handlePasswordChange}
+          type="password"
         />
-        <button data-testid="signup-button" disabled={isButtonDisabled}>
+        <button type="submit" data-testid="signup-button" disabled={isButtonDisabled}>
           회원가입하기
         </button>
-      </div>
+      </form>
     </>
   );
 };
