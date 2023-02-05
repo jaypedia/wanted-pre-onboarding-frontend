@@ -1,6 +1,6 @@
 import { useLoaderData } from 'react-router-dom';
 import { useInput } from 'hooks/useInput';
-import { createTodo, updateTodo } from 'apis/todoApi';
+import { createTodo, deleteTodo, updateTodo } from 'apis/todoApi';
 import { useState } from 'react';
 
 export const Todo = () => {
@@ -21,6 +21,14 @@ export const Todo = () => {
     setTodos((prev) => {
       const filtered = prev.filter((todo) => todo.id !== id);
       return [...filtered, updatedTodo];
+    });
+  };
+
+  const handleDeleteClick = async (id) => {
+    await deleteTodo(id);
+    setTodos((prev) => {
+      const filtered = prev.filter((todo) => todo.id !== id);
+      return filtered;
     });
   };
 
@@ -47,7 +55,9 @@ export const Todo = () => {
                 />
                 <span>{todo}</span>
                 <button data-testid="modify-button">수정</button>
-                <button data-testid="delete-button">삭제</button>
+                <button data-testid="delete-button" onClick={() => handleDeleteClick(id)}>
+                  삭제
+                </button>
               </label>
             </li>
           );
