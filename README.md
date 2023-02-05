@@ -37,7 +37,7 @@
 
 ### 로그인/회원가입
 
-![로그인 & 회원가입](https://user-images.githubusercontent.com/85419343/216812372-15779473-f972-47bf-9193-b30dec4d3483.gif)
+![Demo- login](https://user-images.githubusercontent.com/85419343/216825962-a08fe165-e20e-49f8-8159-f914bfa9696a.gif)
 
 #### [EPIC ISSUE 1. 로그인/회원가입 기능 구현](https://github.com/jaypedia/wanted-pre-onboarding-frontend/issues/2)
 
@@ -48,7 +48,7 @@
 
 ### TODO LIST
 
-![TODO LIST](https://user-images.githubusercontent.com/85419343/216812433-4c44cf3a-04ef-4230-a2bc-1d1e11271d5f.gif)
+![Demo - todo](https://user-images.githubusercontent.com/85419343/216826017-9dc122aa-e048-491c-84f6-e2222571222b.gif)
 
 #### [EPIC ISSUE 2. TODO LIST CRUD 기능 구현](https://github.com/jaypedia/wanted-pre-onboarding-frontend/issues/3)
 
@@ -117,6 +117,8 @@
 ## 6. 과제 진행 시 주안점
 
 ### Error Handling
+
+![Error Handling Demo](https://user-images.githubusercontent.com/85419343/216826150-68218c3e-dab3-46b0-9304-b7ab4890f689.gif)
 
 - 에러 발생 시 보여줄 수 있는 페이지를 만들어 routes의 errorElement에 설정하였습니다.
 - 토큰 존재 여부를 확인하여 로그인 했을 때와 하지 않았을 때 다른 버튼을 보여주도록 하여 조금 더 편리하게 원하는 페이지로 이동할 수 있도록 구현해 보았습니다.
