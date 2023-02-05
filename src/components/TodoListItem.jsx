@@ -1,7 +1,7 @@
 import { updateTodo } from 'apis/todoApi';
 import { useInput } from 'hooks/useInput';
 import { useState } from 'react';
-import { useTodoDispatch } from 'context';
+import { useTodoDispatch } from 'context/TodoProvider';
 
 export const TodoListItem = ({ id, todo, isCompleted, onCheckBoxChange, onDelete }) => {
   const [isEdit, setIsEdit] = useState(false);

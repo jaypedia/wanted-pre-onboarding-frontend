@@ -3,7 +3,7 @@ import { useInput } from 'hooks/useInput';
 import { createTodo, deleteTodo, updateTodo } from 'apis/todoApi';
 import { useEffect } from 'react';
 import { TodoListItem } from 'components/TodoListItem';
-import { useTodoDispatch, useTodoState } from 'context';
+import { useTodoDispatch, useTodoState } from 'context/TodoProvider';
 
 export const Todo = () => {
   const { todos } = useTodoState();

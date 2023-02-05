@@ -1,14 +1,12 @@
-import { TodoProvider } from 'context';
+import { TodoProvider } from 'context/TodoProvider';
 import { RouterProvider } from 'react-router';
 import { router } from './router';
 
 const App = () => {
   return (
-    <div className="App">
-      <TodoProvider>
-        <RouterProvider router={router} />
-      </TodoProvider>
-    </div>
+    <TodoProvider>
+      <RouterProvider router={router} />
+    </TodoProvider>
   );
 };
 
