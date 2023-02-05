@@ -28,4 +28,4 @@ const routes = [
   },
 ];
 
-export const router = createBrowserRouter(routes, { basename: process.env.BASE_NAME });
+export const router = createBrowserRouter(routes, { basename: '/wanted-pre-onboarding-frontend' });
